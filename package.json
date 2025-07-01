@@ -1,0 +1,27 @@
+{
+  "name": "langgraph-agent",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx @langchain/langgraph-cli dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@langchain/community": "^0.3.45",
+    "@langchain/core": "^0.3.61",
+    "@langchain/langgraph": "^0.3.4",
+    "@langchain/langgraph-supervisor": "^0.0.13",
+    "@langchain/openai": "^0.5.10",
+    "@langchain/tavily": "^0.1.1",
+    "@mendable/firecrawl-js": "^1.21.1",
+    "@tavily/core": "^0.5.3",
+    "zod": "^3.25.67"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2"
+  }
+}
