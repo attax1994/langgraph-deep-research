@@ -1,7 +1,7 @@
 import { createReactAgent } from "@langchain/langgraph/prebuilt";
 import { chatModel } from "../models";
 import { webCrawlTool, webSearchTool } from "../tools";
-import { agentCheckpointer } from "../utils";
+import { agentCheckpointer } from "@/utils";
 
 const prompt = `You will simulate the process of conducting research by breaking down the task into logical steps, reasoning through the information you need, and then synthesizing the results based on simulated web search and web crawl outputs.
 You should prioritize accuracy, depth, and relevance in your responses.
