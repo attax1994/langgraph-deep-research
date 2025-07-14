@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "target": "es2024",
+        "target": "esnext",
         "module": "nodenext",
         "outDir": "./dist",
         "rootDir": "./src",
@@ -8,10 +8,18 @@
         "esModuleInterop": true,
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
+        "allowImportingTsExtensions": true,
+        "emitDeclarationOnly": true,
+        "declaration": true,
         "baseUrl": ".",
         "paths": {
-            "@/*": ["./src/*"]
-          },
+            "@/*": [
+                "./src/*"
+            ]
+        },
+    },
+    "ts-node": {
+        "esm": true
     },
     "include": [
         "src/**/*"
