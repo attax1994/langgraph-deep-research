@@ -1,5 +1,5 @@
 import { tavily } from '@tavily/core'
-import { TAVILY_API_KEY } from "../utils";
+import { TAVILY_API_KEY } from "../utils/index.mts";
 import { tool } from "@langchain/core/tools";
 import { z } from "zod"
 

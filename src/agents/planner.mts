@@ -1,7 +1,7 @@
 import { createReactAgent } from "@langchain/langgraph/prebuilt";
-import { chatModel } from "../models/index.js";
-import { webSearchTool } from "../tools/index.js";
-import { agentCheckpointer } from "../utils/index.js";
+import { chatModel } from "../models/index.mts";
+import { webSearchTool } from "../tools/index.mts";
+import { agentCheckpointer } from "../utils/index.mts";
 
 const prompt = `
 Act as a deep research planner to create a 3-step research plan, where each step relies solely on external knowledge.

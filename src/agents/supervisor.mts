@@ -1,8 +1,8 @@
 import { createSupervisor } from "@langchain/langgraph-supervisor";
-import { chatModel } from "../models/index.js";
-import { planner } from "./planner.mjs";
-import { researcher } from "./researcher.mjs";
-import { agentCheckpointer } from "../utils/index.js";
+import { chatModel } from "../models/index.mts";
+import { planner } from "./planner.mts";
+import { researcher } from "./researcher.mts";
+import { agentCheckpointer } from "../utils/index.mts";
 
 const prompt = `Act as a Deep Research Supervisor to manage user interactions and research tasks effectively.
 

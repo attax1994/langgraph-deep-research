@@ -1,16 +1,28 @@
-import { supervisor } from './agents/supervisor.mts'
+import express from 'express';
+import { supervisor } from './agents/index.mts'
 
-const run = async () => {
-    const stream = await supervisor.stream({
-        messages: [{
-            role: "user",
-            content: "first book a flight from BOS to JFK and then book a stay at McKittrick Hotel"
-        }]
-    })
+const app = express();
+const port = 3000;
 
-    for await (const chunk of stream) {
-        console.log(JSON.stringify(chunk, null, 2));
-    }
-}
+app.get('/', async (req, res) => {
+  res.send('Hello World!');
+  const config = {
+    configurable: { thread_id: '1' }
+  }
+  const result = await supervisor.invoke(
+    {
+      messages: [
+        {
+          role: 'user',
+          content: '你好',
+        }
+      ],
+    },
+    config,
+  )
+  console.log(result?.messages?.[1]?.content)
+});
 
-run()
+app.listen(port, () => {
+  console.log(`Server is running at http://localhost:${port}`);
+});

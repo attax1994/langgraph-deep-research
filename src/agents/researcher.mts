@@ -1,8 +1,7 @@
 import { createReactAgent } from "@langchain/langgraph/prebuilt";
-import { chatModel } from "../models/index.js";
-import { webCrawlTool, webSearchTool } from "../tools/index.js";
-import { agentCheckpointer } from "@/utils/index.js";
-import { MCPTradeFEComponentsTools } from "@/mcps/index.js";
+import { chatModel } from "../models/index.mts";
+import { webCrawlTool, webSearchTool } from "../tools/index.mts";
+import { agentCheckpointer } from "../utils/index.mts";
 
 const prompt = `You will simulate the process of conducting research by breaking down the task into logical steps, reasoning through the information you need, and then synthesizing the results based on simulated web search and web crawl outputs.
 You should prioritize accuracy, depth, and relevance in your responses.
@@ -69,7 +68,7 @@ output_locale: zh-CN, including the titles of each level of paragraph.
 export const researcher = createReactAgent({
     name: "researcher",
     llm: chatModel,
-    tools: [webSearchTool, webCrawlTool, ...MCPTradeFEComponentsTools],
+    tools: [webSearchTool, webCrawlTool],
     prompt,
     checkpointSaver: agentCheckpointer,
 })

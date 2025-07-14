@@ -1,5 +1,5 @@
 import FireCrwalApp from '@mendable/firecrawl-js'
-import { FIRECRAWL_API_KEY } from '../utils/api_key'
+import { FIRECRAWL_API_KEY } from '../utils/env.mts'
 import { tool } from "@langchain/core/tools"
 import { z } from "zod"
 
