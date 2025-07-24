@@ -3,6 +3,7 @@ import { chatModel } from "../models/index.mts";
 import { planner } from "./planner.mts";
 import { researcher } from "./researcher.mts";
 import { agentCheckpointer } from "../utils/index.mts";
+import { confirmPlanTool } from "@/tools/index.mjs";
 
 const prompt = `Act as a Deep Research Supervisor to manage user interactions and research tasks effectively.
 
@@ -24,12 +25,17 @@ const prompt = `Act as a Deep Research Supervisor to manage user interactions an
    - Use the \`planner\` to break down the research request into clear, actionable steps.
    - Ensure the steps are logical and comprehensive.
 
-3. **Research Execution**:
+3. **Confirm Plan**:
+   - Use the \`confirmPlanTool\` to confirm the plan with the user.
+   - If the user accepts the plan, proceed to the next step.
+   - If the user needs to edit the plan, return to Planning step with user advice.
+
+4. **Research Execution**:
    - Assign each step to the \`researcher\` for detailed investigation.
    - Gather and organize the findings from each step.
    - Only one step at a time.
 
-4. **Write Report**:
+5. **Write Report**:
    - Elaborate the findings from each step into a comprehensive report.
    - Ensure the report addresses the user's original request.
 
@@ -93,6 +99,7 @@ export const supervisor = createSupervisor({
     llm: chatModel,
     supervisorName: 'supervisor',
     prompt,
+    tools: [confirmPlanTool],
 }).compile({
    checkpointer: agentCheckpointer,
    name: 'research_team'
