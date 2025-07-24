@@ -1,8 +1,8 @@
 {
     "dockerfile_lines": [],
     "graphs": {
-        "planner": "./src/agents/planner.ts:planner",
-        "researcher": "./src/agents/researcher.ts:researcher",
-        "supervisor": "./src/agents/supervisor.ts:supervisor"
+        "planner": "./src/agents/planner.mts:planner",
+        "researcher": "./src/agents/researcher.mts:researcher",
+        "supervisor": "./src/agents/supervisor.mts:supervisor"
     }
 }
