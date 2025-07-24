@@ -24,6 +24,7 @@
     "@mendable/firecrawl-js": "^1.21.1",
     "@tavily/core": "^0.5.3",
     "express": "^5.1.0",
+    "uuid": "^11.1.0",
     "zod": "^3.25.67"
   },
   "devDependencies": {

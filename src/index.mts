@@ -1,5 +1,7 @@
 import express from 'express';
 import { supervisor } from './agents/index.mts'
+import { v4 as uuidv4 } from 'uuid';
+import { StreamMode } from '@langchain/langgraph'
 
 const app = express();
 const port = 3000;
@@ -7,20 +9,24 @@ const port = 3000;
 app.get('/', async (req, res) => {
   res.send('Hello World!');
   const config = {
-    configurable: { thread_id: '1' }
+    configurable: { thread_id: uuidv4() },
+    streamMode: 'messages' as StreamMode,
   }
-  const result = await supervisor.invoke(
+  const result = supervisor.stream(
     {
       messages: [
         {
           role: 'user',
-          content: '你好',
+          content: '请研究1+1等于几',
         }
       ],
     },
     config,
   )
-  console.log(result?.messages?.[1]?.content)
+  for await (const chunk of await result) {
+    console.log(chunk);
+    console.log("\n");
+  }
 });
 
 app.listen(port, () => {
